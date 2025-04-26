@@ -45,6 +45,7 @@ func main() {
 	threads := flag.Int("t", 50, "Thread Num (default=50)")
 	outPath := flag.String("o", "./out.txt", "Output Save File (default=./out.txt)")
 	useJson := flag.Bool("json", false, "Output JSON Format (default=false)")
+	flag.Parse()
 	d, err := utils.ReadFile(*ipList)
 	if err != nil {
 		fmt.Println("Error:", err)
@@ -88,5 +89,5 @@ func main() {
 			fmt.Println("Save Error:", err)
 		}
 	}
-	fmt.Println("Done! Saved to", outPath)
+	fmt.Println("Done! Saved to", *outPath)
 }
